@@ -13,7 +13,7 @@ class Solution {
 
         for(int i=j+1;i<n;i++){
             if(nums[i]!=0){
-                swap(nums, j, i);
+                swap(nums, i, j);
                 j++;
             }
         }
