@@ -1,24 +1,18 @@
-import java.util.HashMap;
+import java.util.HashSet;
 
 class Solution {
     public boolean containsDuplicate(int[] nums) {
 
-    boolean twice = false;
+    boolean twice = false;    
 
-    HashMap<Integer, Integer> map = new HashMap<>();
+    HashSet<Integer> set = new HashSet<>();
 
     for(int i=0;i<nums.length;i++){
-        if(!map.containsKey(nums[i])){
-            map.put(nums[i], 1);
-        } else {
-            twice = true;
-            break;
-        }
+        set.add(nums[i]);
     }
+    if(nums.length!=set.size()) twice = true;
 
     return twice;
-
-    
     
     }
 }
