@@ -9,18 +9,19 @@
  *     }
  * }
  */
+import java.util.ArrayList;
+
 public class Solution {
     public boolean hasCycle(ListNode head) {
 
         ListNode temp = head;
-        HashMap<ListNode, Integer> map = new HashMap<>();
+        ArrayList<ListNode> map = new ArrayList<>();
 
         ListNode position=null;
         
         int i=0;
-        while(!map.containsKey(temp) && temp!=null){
-                map.put(temp, i);
-                i++;
+        while(!map.contains(temp) && temp!=null){
+                map.add(temp);
                 temp = temp.next;
         }
 
