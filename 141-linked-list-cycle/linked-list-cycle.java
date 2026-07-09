@@ -14,12 +14,10 @@ import java.util.ArrayList;
 public class Solution {
     public boolean hasCycle(ListNode head) {
 
-        ListNode temp = head;
-        ArrayList<ListNode> map = new ArrayList<>();
 
-        ListNode position=null;
+        ArrayList<ListNode> map = new ArrayList<>();
         
-        int i=0;
+        ListNode temp = head;
         while(!map.contains(temp) && temp!=null){
                 map.add(temp);
                 temp = temp.next;
