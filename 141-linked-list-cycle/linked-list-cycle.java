@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Solution {
     public boolean hasCycle(ListNode head) {
 
-
+        
         ArrayList<ListNode> map = new ArrayList<>();
         
         ListNode temp = head;
