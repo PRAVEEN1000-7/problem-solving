@@ -12,26 +12,30 @@ class Solution {
 
     public int[] intersection(int[] nums1, int[] nums2) {
         
-        HashSet<Integer> set1 = new HashSet<>();
-        HashSet<Integer> set2 = new HashSet<>();
+        int max1 = max(nums1);
+        int max2 = max(nums2);
+        int max = Math.max(max1, max2);
 
-        for(int i:nums1) set1.add(i);
-        for(int i: nums2) set2.add(i);
+        int arr[] = new int[max+1];
 
-        HashSet<Integer> set = new HashSet<>();
-        for(int i:nums1) {
-            if(set2.contains(i)){
-                set.add(i);
+        for(int i: nums1) arr[i]=1;
+
+        int count=0;
+        for(int i: nums2) {
+            if(arr[i]==1) {
+                arr[i]=2;
+                count++;
             }
         }
 
-        int[] arr = new int[set.size()];
-        int i=0;
-        for(Integer j : set) {
-            arr[i] = j;
-            i++;
+        int[] result = new int[count];
+        int pos=0;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]==2){
+                result[pos++]=i;
+            }
         }
 
-        return arr;
+        return result;
     }
 }
