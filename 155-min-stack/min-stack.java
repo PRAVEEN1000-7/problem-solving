@@ -3,45 +3,42 @@ import java.lang.Math;
 
 class MinStack {
 
-    int data;
-    MinStack next;
-    MinStack top;
-    int min;
+    Stack<Integer> stack;
+    Stack<Integer> minStack;
 
     public MinStack() {
-        
+        stack = new Stack<>();
+        minStack = new Stack<>();
     }
     
     public void push(int value) {
 
-        MinStack newNode = new MinStack();
-        newNode.data = value;
-
-        if(top==null) newNode.min = value;
-        else newNode.min = Math.min(value, top.min); 
-
-        newNode.next = top;
-        top = newNode;
+        if(minStack.isEmpty() || value<=minStack.peek()){
+            minStack.push(value);
+        }
         
+        stack.push(value);
         
     }
     
     public void pop() {
         
-        if(top!=null) {
-            top = top.next;
+        if(stack.peek().equals(minStack.peek())){
+            minStack.pop();
         }
+        stack.pop();
+   
     }
     
     public int top() {
         
-        if(top!=null) return top.data;
-
-        return -1;
+      return stack.peek();
     }
     
     public int getMin() {
-        return top.min;        
+
+        return minStack.peek();
+
     }
 }
 
