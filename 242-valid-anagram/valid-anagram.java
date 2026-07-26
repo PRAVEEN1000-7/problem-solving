@@ -1,14 +1,23 @@
-import java.util.Arrays;
 
 class Solution {
     public boolean isAnagram(String s, String t) {
         
-        char[] c1 = s.toCharArray();
-        char[] c2 = t.toCharArray();
+    List<Character> list = new ArrayList<>();
 
-        Arrays.sort(c1);
-        Arrays.sort(c2);
+    for(char c : s.toCharArray()) {
+        list.add(c);
+    }
 
-        return Arrays.equals(c1, c2);
+    boolean anagram = true;
+    for(char c : t.toCharArray()) {
+        if(list.contains(c)){
+            list.remove(Character.valueOf(c));
+        } else {
+            anagram = false;
+        }
+    }
+
+    return (list.isEmpty())? anagram : false ;
+        
     }
 }
